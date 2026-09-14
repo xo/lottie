@@ -1,0 +1,7 @@
+# Normalise committed text to LF in the repository and in the working tree, so
+# a Windows checkout is byte-identical to a Linux one; the scripts in scripts/
+# are unusable with CRLF endings.
+* text=auto eol=lf
+
+# The bundled ThorVG build is not text.
+*.wasm binary -eol
