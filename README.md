@@ -1,3 +1,12 @@
+<hr/>
+
+## DEPRECATED
+
+NOTE: This repo has been deprecated. A Pure Go lottie decoder is now available
+in the [`okage`](https://github.com/xo/okage) package.
+
+<hr/>
+
 # lottie
 
 Render Lottie animations to Go images. Pure Go, no cgo, no browser.
@@ -40,15 +49,15 @@ pngs, err := lottie.RenderPNG(ctx, data, lottie.Options{Width: 256, Height: 256}
 
 ## API
 
-| | |
-|---|---|
-| `New(ctx, opts...) (*Renderer, error)` | Compiles the module and starts the engine. Reuse it. |
+|                                                            |                                                         |
+| ---------------------------------------------------------- | ------------------------------------------------------- |
+| `New(ctx, opts...) (*Renderer, error)`                     | Compiles the module and starts the engine. Reuse it.    |
 | `(*Renderer).Load(ctx, data, Options) (*Animation, error)` | Parses a Lottie JSON document onto a fixed-size canvas. |
-| `(*Animation).Frame(ctx, n float32) (*image.NRGBA, error)` | One frame; fractional `n` interpolates. |
-| `(*Animation).Frames(ctx) ([]image.Image, error)` | Every frame, in order. |
-| `(*Animation).FramesAt(ctx, n) ([]image.Image, error)` | `n` frames spread evenly across the timeline. |
-| `(*Animation).TotalFrames/Duration/FPS/Size` | Timing and geometry from the file. |
-| `Render` / `RenderPNG` | One-shot helpers that own the engine for you. |
+| `(*Animation).Frame(ctx, n float32) (*image.NRGBA, error)` | One frame; fractional `n` interpolates.                 |
+| `(*Animation).Frames(ctx) ([]image.Image, error)`          | Every frame, in order.                                  |
+| `(*Animation).FramesAt(ctx, n) ([]image.Image, error)`     | `n` frames spread evenly across the timeline.           |
+| `(*Animation).TotalFrames/Duration/FPS/Size`               | Timing and geometry from the file.                      |
+| `Render` / `RenderPNG`                                     | One-shot helpers that own the engine for you.           |
 
 `Options.Width`/`Height` default to the animation's own composition size.
 `Options.Quality` (0–100) bounds the cost of Lottie blurs and shadows.
